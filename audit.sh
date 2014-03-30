@@ -17,6 +17,7 @@ cp docs.txt{,-$(date +%s)}
 
 mput -f select.js ~~/stor/select.js
 
-cat docs.txt | mjob create -o \
+cat no-tag.txt | mjob create -o \
   -s '/npm/stor/select.js' \
-  -m 'node /assets/npm/stor/select.js' > maybebad.txt
+  -m 'node /assets/npm/stor/select.js' \
+  -r 'cat' > maybebad.txt

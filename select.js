@@ -4,8 +4,6 @@ function debug() {
   //console.log.apply(console, arguments)
 }
 
-console.log('starting...', process.env.MANTA_INPUT_OBJECT)
-
 var obj
 var json = ''
 var path = require('path')
@@ -145,8 +143,10 @@ function tags() {
         return true
       }
     })[0]
-    if (!t)
-      throw 'tag not found'
+    if (!t) {
+      console.log('%s@%s tag not found', obj.name, obj.version)
+      return getTar()
+    }
     checkout(t)
   })
 }
