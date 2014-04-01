@@ -38,16 +38,22 @@ positives, unfortunately.
 Results:
 
 * Total packages analyzed: 66608
-* Packages published since 2014-03-01 (and thus presumed safe): 10177
-* Packages lacking a git repo: 11282
-* Packages with an invalid git repo (failed to clone): 39906
-* Packages with a valid git repo, but missing the release tag: 2889
-* Vulnerable packages confirmed safe: 1367
-* Packages with some change between git and npm: 632
+* Packages published since 2014-03-01 (and thus probably safe anyway): 10177
+* Packages lacking a git repo: 12376
+* Packages with an invalid git repo (failed to clone): 49335
+* Packages with a valid git repo, but missing the release tag: 2582
+* Packages confirmed matching their git repo: 2887
+* Packages with some change between git and npm: 4663 (including those
+  missing a release tag.  721 otherwise)
 
-I'm re-running the analytics now to also check packages published
-since 2014-03-01, but so far it looks like they follow the same
-pattern.
+Files included in this repo:
+
+* `results.txt` The analysis of all packages whose last published date
+  is before 2014-03-01.
+* `results-no-tag.txt` The analysis of all packages published before
+  2014-03-01, who did not have a tagged release in their git repo.
+* `results-with-new.txt` The analysis of all packages that exist now,
+  regardless of their publish date.
 
 ## Changed Files
 
@@ -134,5 +140,5 @@ packages where the contents in git don't match what's on npm.  So far,
 we have found no evidence of bad behavior, but it would be great to
 have more eyeballs on this.
 
-You can see all the result data in the `results.txt` and
-`results-no-tag.txt` files in this repo.
+You can see all the result data in this repo.  The next step is to
+create a backlog of packages to be manually checked by human beings.

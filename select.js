@@ -18,7 +18,7 @@ var assert = require('assert')
 process.stdin.setEncoding('utf8')
 process.stdin.on('data', function(c) { json += c })
 process.stdin.on('end', go)
-var okDay = Date.parse('2014-03-01T00:00:00.000Z')
+var okDay = Date.parse('2015-03-01T00:00:00.000Z')
 
 function go() {
   try {

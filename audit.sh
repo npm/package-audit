@@ -13,11 +13,11 @@ one=""
 # first, get a list of all latest versions published before 2014-03-01
 #mfind $limit -t o -n 'doc.json' ~~/public/registry/$one > docs.txt
 
-cp docs.txt{,-$(date +%s)}
+#cp docs.txt{,-$(date +%s)}
 
 mput -f select.js ~~/stor/select.js
 
-cat no-tag.txt | mjob create -o \
+cat docs.txt | mjob create \
   -s '/npm/stor/select.js' \
   -m 'node /assets/npm/stor/select.js' \
-  -r 'cat' > maybebad.txt
+  -r 'cat'
